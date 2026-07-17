@@ -1,0 +1,201 @@
+{
+  "app_version": 2,
+  "questions": 491,
+  "id_min": 1,
+  "id_max": 491,
+  "id_unique": 491,
+  "categories": 21,
+  "figures": 24,
+  "questions_with_figures": 491,
+  "figure_behavior": "hidden_by_default_per_question; reveal_by_button; resets_on_navigation",
+  "github_pages": {
+    "relative_paths": true,
+    "nojekyll": true,
+    "required_figure_directory": "assets/figures",
+    "missing_figure_files": []
+  },
+  "checks": {
+    "javascript_syntax": "passed (node --check)",
+    "interactive_browser_test": "passed (Chromium via set_content; figure hidden, reveal works, image loads, next resets hidden)",
+    "all_figure_paths_exist": true,
+    "question_ids_contiguous": true,
+    "category_selector_count_including_all": 22
+  },
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "GITHUB_PAGES_配置確認.txt",
+      "bytes": 1048,
+      "sha256": "3c127b5c8c1304ebcdd5c5915065668e58f25248d041dd9caa535bfb1550578d"
+    },
+    {
+      "path": "README.txt",
+      "bytes": 1667,
+      "sha256": "b055a41efdb5cea91944f2e16d7e71bc3fafa768938474d03353201c5dfc0bf9"
+    },
+    {
+      "path": "app.js",
+      "bytes": 15087,
+      "sha256": "45fd0eef14071ba2ac6f066086702f941b227c2125c948d05b955aac19c9b655"
+    },
+    {
+      "path": "assets/figures/figure-01.jpg",
+      "bytes": 172416,
+      "sha256": "bf2dc4465603ec1a22a6fdd908ed7dc8d5d0c617868a4c3305e50079a2c8e7f7"
+    },
+    {
+      "path": "assets/figures/figure-02.jpg",
+      "bytes": 106687,
+      "sha256": "a6b7b922b90b776ff2eaefb5db1609034bb3cc3446df5cc8b51b857687d1633b"
+    },
+    {
+      "path": "assets/figures/figure-03.jpg",
+      "bytes": 157039,
+      "sha256": "a94077e6ad0c59acc5e5f8405a882cb8e55b2e7ce40d733fc7305699b97c280b"
+    },
+    {
+      "path": "assets/figures/figure-04.jpg",
+      "bytes": 69303,
+      "sha256": "7877d27d8ae3abded8d0dc55952069bb9b17575bfb6cc9e0463c6b04d384540f"
+    },
+    {
+      "path": "assets/figures/figure-05.jpg",
+      "bytes": 196946,
+      "sha256": "8d3defcde34ee6f859c79add256e6b964a37624d0e9c0dabe53819059414befb"
+    },
+    {
+      "path": "assets/figures/figure-06.jpg",
+      "bytes": 244401,
+      "sha256": "db08a63ac99aee52eb7bb9b0c79eb121fc9035d8cfc4e01eff5c04b685c2679d"
+    },
+    {
+      "path": "assets/figures/figure-07.jpg",
+      "bytes": 205150,
+      "sha256": "928c37b1ac7dcbdefddbeac1d21eb0628cb8f3b9de9bb3c04b725390736a30ff"
+    },
+    {
+      "path": "assets/figures/figure-08.jpg",
+      "bytes": 106113,
+      "sha256": "dfb161357edf5e8d9f7f4477d9d8b98d1db9408f1eebeeac060135051215d057"
+    },
+    {
+      "path": "assets/figures/figure-09.jpg",
+      "bytes": 182445,
+      "sha256": "54460df1dc8a27a08abf950fc8c919705e365a32ec24d76c1609c12ae0d8ef3e"
+    },
+    {
+      "path": "assets/figures/figure-10.jpg",
+      "bytes": 130341,
+      "sha256": "0ce5251a571dac02bd23336ed70c01e3c8501c3502123242ede5176501f4c3b6"
+    },
+    {
+      "path": "assets/figures/figure-11.jpg",
+      "bytes": 205785,
+      "sha256": "c2f3fbbab959f0c8f506bd4ac6a3cff7da0b48932a9edd8b4449432655a5f139"
+    },
+    {
+      "path": "assets/figures/figure-12.jpg",
+      "bytes": 197666,
+      "sha256": "69e6348b8d0da2300177501fc5ab497ce50161a58de8dd41d1af1bb95eddca79"
+    },
+    {
+      "path": "assets/figures/figure-13.jpg",
+      "bytes": 134338,
+      "sha256": "d0e614c06f38634f8bcece2cc1bc62b84c3df00530e9eb023f3de51ef27bad14"
+    },
+    {
+      "path": "assets/figures/figure-14.jpg",
+      "bytes": 131450,
+      "sha256": "d3b83cd2533e5061181343d3c026d958ced24ca2ea84700f7ceadf564c601532"
+    },
+    {
+      "path": "assets/figures/figure-15.jpg",
+      "bytes": 126151,
+      "sha256": "f14a49d54bbf36a4ecc8a1fd3a7b73c16e21b52487e6bdd5a918519a462e1ce6"
+    },
+    {
+      "path": "assets/figures/figure-16.jpg",
+      "bytes": 174625,
+      "sha256": "6bacb839e2b61266a4767bc68b3a75a9790f084f048128d935f6a6fcf83939e7"
+    },
+    {
+      "path": "assets/figures/figure-17.jpg",
+      "bytes": 159977,
+      "sha256": "b97dd31622cac75c287dd316c29b554e8322aa6ff776cbd689a45cc1e6e695ed"
+    },
+    {
+      "path": "assets/figures/figure-18.jpg",
+      "bytes": 190500,
+      "sha256": "3af04ba3684d85fda62db196df8d6694fccbb4e093a44961871c2ceba3f81e95"
+    },
+    {
+      "path": "assets/figures/figure-19.jpg",
+      "bytes": 126461,
+      "sha256": "6f69dd8917eb41cd3d22a378856fdc68709fcd90f96e35af4b6f46fc70982e3d"
+    },
+    {
+      "path": "assets/figures/figure-20.jpg",
+      "bytes": 174625,
+      "sha256": "6bacb839e2b61266a4767bc68b3a75a9790f084f048128d935f6a6fcf83939e7"
+    },
+    {
+      "path": "assets/figures/figure-21.jpg",
+      "bytes": 190500,
+      "sha256": "3af04ba3684d85fda62db196df8d6694fccbb4e093a44961871c2ceba3f81e95"
+    },
+    {
+      "path": "assets/figures/figure-22.jpg",
+      "bytes": 130561,
+      "sha256": "dc659f5770e1b1470c7758b73c082a8ae4b221dd1dc20eb2e8e799a0cf3eb831"
+    },
+    {
+      "path": "assets/figures/figure-23.jpg",
+      "bytes": 151331,
+      "sha256": "62d8760f15165ce1da85c32453d0ead4605f3fe5ae90931b2bd7f7b8ae7ad974"
+    },
+    {
+      "path": "assets/figures/figure-24.jpg",
+      "bytes": 213594,
+      "sha256": "573a9afe0d10e315e6eef92d2de61abc0120258981fd57216ab3f2fd76a0774f"
+    },
+    {
+      "path": "icons/apple-touch-icon.png",
+      "bytes": 733,
+      "sha256": "faf6e92800a21ce6b9b79077e66c1242a41629200b07c1dbf0e08cd5e3597b49"
+    },
+    {
+      "path": "icons/icon-192.png",
+      "bytes": 770,
+      "sha256": "922bd6342fa49f7d92821be51f758442efda94dec3141b9fc6a3309095337449"
+    },
+    {
+      "path": "icons/icon-512.png",
+      "bytes": 2131,
+      "sha256": "b5663a2ae6d49a793107b927b654548f3dd43253151ba825a8f2ff2ce416333f"
+    },
+    {
+      "path": "index.html",
+      "bytes": 206348,
+      "sha256": "8cfc29963a7437b20b0c3348b7622357ef6ebe5a4173bf59643441694803ff78"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 596,
+      "sha256": "ca16b74c0099a9618a67a8b75bef195e6ef26ef3cd02a77bdd6541ca9888e293"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 9507,
+      "sha256": "6741a3a95a039f4b22bbe4bef1e9d2fecc4443d7ff98ec8322bbb25cb9fd4534"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 1766,
+      "sha256": "ccea25376451313271fb97fcfbdb1e68daeb61eeebf6d35bc2bf9d5a91a4fa01"
+    }
+  ]
+}

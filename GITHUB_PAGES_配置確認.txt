@@ -1,0 +1,32 @@
+GitHub Pages 配置確認
+
+リポジトリ直下が、次の形になっている必要があります。
+
+index.html
+app.js
+styles.css
+sw.js
+manifest.webmanifest
+.nojekyll
+assets/
+  figures/
+    figure-01.jpg
+    figure-02.jpg
+    ...
+    figure-24.jpg
+icons/
+  icon-192.png
+  icon-512.png
+  apple-touch-icon.png
+
+よくある原因
+1. ZIPファイルだけをGitHubへ置いた
+2. index.htmlだけを置き、assetsフォルダを置いていない
+3. 「口腔衛生学_暗記アプリ_PWA」という親フォルダごと置き、Pagesの公開元とindex.htmlの階層がずれている
+4. assets/figures の大文字・小文字や名前が変わった
+5. 古いService Workerのキャッシュが残っている
+
+確認方法
+・GitHubのファイル一覧で assets/figures/figure-01.jpg を開き、画像が見えるか確認する。
+・公開URLの末尾に /assets/figures/figure-01.jpg を付けて、画像単体が表示されるか確認する。
+・表示されなければ、Pages設定ではなくファイル配置の問題。
