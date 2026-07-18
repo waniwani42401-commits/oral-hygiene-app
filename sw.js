@@ -1,5 +1,58 @@
-const CACHE='oral-hygiene-pwa-v3.0.0';
-const ASSETS=["./", "./index.html", "./app.js", "./styles.css", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/apple-touch-icon.png", "./assets/figures/figure-01.jpg", "./assets/figures/figure-02.jpg", "./assets/figures/figure-03.jpg", "./assets/figures/figure-04.jpg", "./assets/figures/figure-05.jpg", "./assets/figures/figure-06.jpg", "./assets/figures/figure-07.jpg", "./assets/figures/figure-08.jpg", "./assets/figures/figure-09.jpg", "./assets/figures/figure-10.jpg", "./assets/figures/figure-11.jpg", "./assets/figures/figure-12.jpg", "./assets/figures/figure-13.jpg", "./assets/figures/figure-14.jpg", "./assets/figures/figure-15.jpg", "./assets/figures/figure-16.jpg", "./assets/figures/figure-17.jpg", "./assets/figures/figure-18.jpg", "./assets/figures/figure-19.jpg", "./assets/figures/figure-20.jpg", "./assets/figures/figure-21.jpg", "./assets/figures/figure-22.jpg", "./assets/figures/figure-23.jpg", "./assets/figures/figure-24.jpg"];
-self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)));self.skipWaiting();});
-self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))));self.clients.claim();});
-self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request).then(response=>{const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));return response;}).catch(()=>caches.match('./index.html'))));});
+const CACHE_NAME = 'oral-hygiene-pwa-v5.0.0';
+const CORE = [
+  './',
+  './index.html',
+  './styles.css',
+  './app.js',
+  './base-questions.js',
+  './manifest.webmanifest'
+];
+
+self.addEventListener('install', event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    await Promise.allSettled(CORE.map(url => cache.add(url)));
+    await self.skipWaiting();
+  })());
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil((async () => {
+    const names = await caches.keys();
+    await Promise.all(names.filter(name => name !== CACHE_NAME).map(name => caches.delete(name)));
+    await self.clients.claim();
+  })());
+});
+
+self.addEventListener('fetch', event => {
+  const request = event.request;
+  if (request.method !== 'GET') return;
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  const isImage = request.destination === 'image' || /\/assets\/figures\//.test(url.pathname) || /\/icons\//.test(url.pathname);
+  if (isImage) {
+    event.respondWith((async () => {
+      const cached = await caches.match(request);
+      if (cached) return cached;
+      try {
+        const response = await fetch(request);
+        if (response.ok) (await caches.open(CACHE_NAME)).put(request, response.clone());
+        return response;
+      } catch (_) {
+        return new Response('', { status: 504, statusText: 'Offline' });
+      }
+    })());
+    return;
+  }
+
+  event.respondWith((async () => {
+    try {
+      const response = await fetch(request, { cache: 'no-cache' });
+      if (response.ok) (await caches.open(CACHE_NAME)).put(request, response.clone());
+      return response;
+    } catch (_) {
+      return (await caches.match(request)) || (request.mode === 'navigate' ? await caches.match('./index.html') : new Response('', { status: 504, statusText: 'Offline' }));
+    }
+  })());
+});

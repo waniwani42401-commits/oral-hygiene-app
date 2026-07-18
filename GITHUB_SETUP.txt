@@ -1,0 +1,23 @@
+【GitHub差し替え手順】
+
+1. ZIPを解凍する
+2. GitHubの口腔衛生学アプリのリポジトリを開く
+3. Add file → Upload files
+4. 次の4ファイルを選ぶ
+   index.html
+   app.js
+   styles.css
+   sw.js
+5. Commit changes を押す
+
+次は削除しないでください。
+・base-questions.js
+・assets フォルダ
+・icons フォルダ
+・manifest.webmanifest
+・.nojekyll
+
+更新後、旧画面が残る場合：
+・1〜3分待つ
+・Safariで再読み込み
+・ホーム画面の旧アプリを削除し、公開URLから再追加する
