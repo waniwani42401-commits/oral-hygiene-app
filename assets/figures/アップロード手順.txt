@@ -1,0 +1,8 @@
+1. GitHubの oral-hygiene-app リポジトリを開く
+2. assets → figures の順に開く
+3. Add file → Upload files
+4. このフォルダ内の figure-11.jpg ～ figure-24.jpg をすべて選択
+5. Commit changes
+6. 公開URLを再読み込み
+
+注意：ファイル名は小文字・ハイフン・拡張子 .jpg のまま変更しないでください。
