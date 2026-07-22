@@ -1,17 +1,13 @@
-const CACHE_NAME = 'oral-hygiene-pwa-v5.0.0';
-const CORE = [
-  './',
-  './index.html',
-  './styles.css',
-  './app.js',
-  './base-questions.js',
-  './manifest.webmanifest'
-];
+const CACHE_NAME = 'oral-hygiene-single-v6.0.0';
+const INDEX_URL = './index.html';
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
-    await Promise.allSettled(CORE.map(url => cache.add(url)));
+    try {
+      const response = await fetch(new Request(INDEX_URL, { cache: 'reload' }));
+      if (response.ok) await cache.put(INDEX_URL, response.clone());
+    } catch (_) {}
     await self.skipWaiting();
   })());
 });
@@ -30,29 +26,21 @@ self.addEventListener('fetch', event => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  const isImage = request.destination === 'image' || /\/assets\/figures\//.test(url.pathname) || /\/icons\//.test(url.pathname);
-  if (isImage) {
+  if (request.mode === 'navigate') {
     event.respondWith((async () => {
-      const cached = await caches.match(request);
-      if (cached) return cached;
       try {
-        const response = await fetch(request);
-        if (response.ok) (await caches.open(CACHE_NAME)).put(request, response.clone());
+        const response = await fetch(request, { cache: 'no-store' });
+        if (response.ok) {
+          const cache = await caches.open(CACHE_NAME);
+          await cache.put(INDEX_URL, response.clone());
+        }
         return response;
       } catch (_) {
-        return new Response('', { status: 504, statusText: 'Offline' });
+        return (await caches.match(INDEX_URL)) || new Response('オフラインです', {
+          status: 503,
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+        });
       }
     })());
-    return;
   }
-
-  event.respondWith((async () => {
-    try {
-      const response = await fetch(request, { cache: 'no-cache' });
-      if (response.ok) (await caches.open(CACHE_NAME)).put(request, response.clone());
-      return response;
-    } catch (_) {
-      return (await caches.match(request)) || (request.mode === 'navigate' ? await caches.match('./index.html') : new Response('', { status: 504, statusText: 'Offline' }));
-    }
-  })());
 });
