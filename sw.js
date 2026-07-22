@@ -1,4 +1,4 @@
-const CACHE_NAME = 'oral-hygiene-single-v6.0.0';
+const CACHE_NAME = 'oral-hygiene-single-v7.0.0';
 const INDEX_URL = './index.html';
 
 self.addEventListener('install', event => {
