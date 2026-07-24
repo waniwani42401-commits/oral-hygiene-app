@@ -1,4 +1,4 @@
-const VERSION = '9.1.0';
+const VERSION = '9.2.0';
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
@@ -7,4 +7,3 @@ self.addEventListener('activate', event => {
     await self.clients.claim();
   })());
 });
-// v9では保存容量を圧迫しないよう、アプリ本体や画像をCache Storageへ複製しません。
