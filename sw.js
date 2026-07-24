@@ -1,4 +1,4 @@
-const VERSION = '9.0.0';
+const VERSION = '9.1.0';
 self.addEventListener('install', event => event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
